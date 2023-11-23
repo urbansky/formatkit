@@ -1,14 +1,23 @@
 {
   "name": "formatkit",
   "version": "0.1.0",
-  "description": "Efficient and Flexible Formatting Utilities",
+  "description": "Efficient and Flexible Formatting Utilities for Javascript",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "format",
+    "formatting",
+    "string",
+    "readable",
+    "human",
+    "human-readable",
+    "filesize"
+  ],
+  "author": "Stefan Urbansky",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.9.2",
     "typescript": "^5.3.2"

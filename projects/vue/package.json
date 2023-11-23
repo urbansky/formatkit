@@ -1,7 +1,7 @@
 {
-  "name": "vue",
-  "version": "0.0.0",
-  "private": true,
+  "name": "vueformatkit-project",
+  "version": "0.1.0",
+  "description": "Efficient and Flexible Formatting Utilities for Vue3",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -9,6 +9,17 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
+  "keywords": [
+    "format",
+    "formatting",
+    "string",
+    "readable",
+    "human",
+    "human-readable",
+    "filesize"
+  ],
+  "author": "Stefan Urbansky",
+  "license": "MIT",
   "dependencies": {
     "vue": "^3.3.4"
   },
