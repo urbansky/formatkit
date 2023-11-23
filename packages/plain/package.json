@@ -1,7 +1,12 @@
 {
   "name": "formatkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Efficient and Flexible Formatting Utilities for Javascript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/urbansky/formatkit"
+  },
+  "homepage": "https://www.formatkit.com",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
