@@ -1,16 +1,16 @@
-import { filesize } from 'filesize'
+import {filesize, FileSizeOptionsBase} from 'filesize'
 
 const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 type filesizeUnits = 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' | 'EB' | 'ZB' | 'YB';
 
 export type FormatFileSizeOptions = {
-    unit?: "auto" | filesizeUnits,
-    base?: 2 | 10,
+    unit: "auto" | filesizeUnits,
+    base: 2 | 10,
     // numberFormat?: boolean,    // Soll der Wert formatiert werden, z.B. 10.000
-    precision?: number,        // Stellen nach dem Komma
-    empty?: string,            // Ausgabe bei 'undefined'
-    spacer?: string,            // Zeichen zwischen Wert und Einheit
-    splitOutput?: false,       // Wert und Einheit einzeln zurückgeben, z.B. für getrennte Formatierungen
+    precision: number,        // Stellen nach dem Komma
+    empty: string,            // Ausgabe bei 'undefined'
+    spacer: string,            // Zeichen zwischen Wert und Einheit
+    splitOutput: boolean,       // Wert und Einheit einzeln zurückgeben, z.B. für getrennte Formatierungen
 }
 
 const standardOptions: FormatFileSizeOptions = {
@@ -28,8 +28,8 @@ export type FormatFileSizeOutput = {
     unit: string;
 }
 
-export function formatFileSize(byteCount: number | undefined, options: FormatFileSizeOptions = {}): string | FormatFileSizeOutput {
-    const finalOptions = { ...standardOptions, ...options };
+export function formatFileSize(byteCount: number | undefined, options: Partial<FormatFileSizeOptions> = {}): string | FormatFileSizeOutput {
+    const finalOptions: FormatFileSizeOptions = { ...standardOptions, ...options };
 
     if (byteCount === undefined) {
         if (finalOptions.splitOutput) {
@@ -47,7 +47,7 @@ export function formatFileSize(byteCount: number | undefined, options: FormatFil
         precision: finalOptions.precision,
         spacer: finalOptions.spacer,
         output: finalOptions.splitOutput ? 'object' : 'string',
-    })
+    } as FileSizeOptionsBase)
 
     if (finalOptions.splitOutput) {
         return {

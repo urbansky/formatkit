@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { formatFileSize } from './filesize'
+import {formatFileSize, FormatFileSizeOptions} from './filesize'
 
 test('undefined and empty', () => {
     expect(formatFileSize(undefined)).toBe("-")
@@ -17,7 +17,7 @@ test('standard options', () => {
 })
 
 test('base 2', () => {
-    const options = { base: 2 }
+    const options: Partial<FormatFileSizeOptions> = { base: 2 }
     expect(formatFileSize(1000, options)).toBe("1000 B")
     expect(formatFileSize(1024, options)).toBe("1 KiB")
 })
@@ -28,9 +28,7 @@ test('spacer', () => {
 })
 
 test('split output', () => {
-    expect(formatFileSize(100, { splitOutput: true }))
-        .toHaveProperty('value', 100)
-        .toHaveProperty('unit', 'B')
+    expect(formatFileSize(100, { splitOutput: true })).toMatchObject({ value: 100, unit: "B" })
 })
 
 test('precision', () => {
