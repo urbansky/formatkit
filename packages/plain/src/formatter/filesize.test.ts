@@ -41,4 +41,6 @@ test('precision', () => {
     expect(formatFileSize(265318, { unit: "B", precision: 0 })).toBe("265318 B")
     expect(formatFileSize(265318, { unit: "B", precision: 6 })).toBe("265318 B")
     expect(formatFileSize(265318, { unit: "B", precision: 5 })).toBe("2.6532e+5 B")
+    expect(formatFileSize(265318, { unit: "B", precision: 4 })).toBe("2.653e+5 B")
 })
+
