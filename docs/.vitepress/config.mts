@@ -24,5 +24,15 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
-  }
+  },
+  head: [
+    // <script defer data-domain="formatkit.com" src="https://plausible.io/js/script.js"></script>
+    [
+      'script',
+      { defer: '', 'data-domain': 'formatkit.com', src: 'https://plausible.io/js/script.js' }
+    ]
+  ]
 })
+
+
+
